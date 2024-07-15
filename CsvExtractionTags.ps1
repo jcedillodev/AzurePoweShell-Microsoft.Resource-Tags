@@ -67,11 +67,12 @@ function CsvExtractionTags {
                 # Setup modified filename path to create new/modified .csv file
                 $filename = ($FilePath.split("\"))[($FilePath.split("\").Length - 1)]
                 $modifiedfile = "$(($filename.split(".")[0]))-$($formattedCvsModDt)"
-
-                # Export modified .csv file
-                $csvContent | Export-Csv -Path "$env:userprofile\Downloads\$modifiedfile.csv" -NoTypeInformation
             }
         }
     }
+
+    # Export modified .csv file
+    $csvContent | Export-Csv -Path "$env:userprofile\Downloads\$modifiedfile.csv" -NoTypeInformation
+    
     Write-Host "Number of changes from .csv file: $($i)"
 }
